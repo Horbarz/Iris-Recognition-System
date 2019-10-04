@@ -22,7 +22,7 @@ function varargout = gen_compare(varargin)
 
 % Edit the above text to modify the response to help gen_compare
 
-% Last Modified by GUIDE v2.5 29-Sep-2019 23:38:19
+% Last Modified by GUIDE v2.5 04-Oct-2019 15:17:39
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -166,9 +166,9 @@ imshow(temp2);
     
 
 
-% --- Executes on button press in compare.
-function compare_Callback(hObject, eventdata, handles)
-% hObject    handle to compare (see GCBO)
+% --- Executes on button press in recognition.
+function recognition_Callback(hObject, eventdata, handles)
+% hObject    handle to recognition (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 % eye=getappdata(handles.figure1,'IrisImg1');
@@ -261,26 +261,3 @@ function Enhance_Callback(hObject, eventdata, handles)
 image = getappdata(handles.figure1,'imagePath');
 enhImg = redColor(image);
 setappdata(handles.figure1,'enhancedImage',enhImg);
-
-
-% --- Executes on button press in daugSegmentation.
-function daugSegmentation_Callback(hObject, eventdata, handles)
-% hObject    handle to daugSegmentation (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-eye=getappdata(handles.figure1,'IrisImg1');
-[ci cp out time]=thresh(eye,50,200);
-%subplot(1,2,2),imshow(out);
-subplot(3,2,3),imshow(out);
-
-
-% --- Executes on button press in proposedSegmentation.
-function proposedSegmentation_Callback(hObject, eventdata, handles)
-% hObject    handle to proposedSegmentation (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-eye=getappdata(handles.figure1,'IrisImg1');
-eye=localisation2(eye,0.2)
-[ci cp out time]=thresh(eye,50,200);
-subplot(3,2,4),imshow(out);
-hu
